@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Umumiy tana */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #121212; /* quyuq qora fon */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f0c419; /* sariq rang */
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 100vh;
+  user-select: none;
 }
 
-.App-link {
-  color: #61dafb;
+/* Asosiy container */
+#root > div {
+  width: 90vw;
+  max-width: 1200px;
+  height: 90vh;
+  background-color: #1e1e1e;
+  box-shadow: 0 8px 24px rgba(240, 196, 25, 0.3);
+  border-radius: 12px;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  user-select: text;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Textarea editor */
+#editor {
+  width: 50%;
+  height: 100%;
+  background-color: #222222;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 1.1rem;
+  color: #f0c419;
+  resize: none;
+  outline: none;
+  box-shadow: inset 0 0 8px #f0c419aa;
+  font-family: 'Fira Mono', monospace;
+  line-height: 1.5;
+  transition: box-shadow 0.3s ease;
+}
+
+#editor:focus {
+  box-shadow: inset 0 0 12px #ffd700;
+  background-color: #2a2a2a;
+}
+
+/* Preview panel */
+#preview {
+  width: 50%;
+  height: 100%;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: inset 0 0 8px #f0c419aa;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f0c419;
+}
+
+/* Scrollbar for preview */
+#preview::-webkit-scrollbar {
+  width: 8px;
+}
+#preview::-webkit-scrollbar-track {
+  background: #121212;
+  border-radius: 10px;
+}
+#preview::-webkit-scrollbar-thumb {
+  background-color: #f0c419;
+  border-radius: 10px;
+  border: 2px solid #121212;
+}
+
+/* Markdown heading styles */
+#preview h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  border-bottom: 3px solid #f0c419;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+#preview h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #ffd633;
+}
+
+/* Links */
+#preview a {
+  color: #ffd633;
+  text-decoration: none;
+  border-bottom: 1.5px solid #f0c419;
+  transition: color 0.3s ease;
+}
+#preview a:hover {
+  color: #fff176;
+}
+
+/* Inline code */
+#preview code {
+  background-color: #333333;
+  color: #f0c419;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Mono', monospace;
+}
+
+/* Code blocks */
+#preview pre {
+  background-color: #222222;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Fira Mono', monospace;
+  color: #f0c419;
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 10px #f0c41988;
+}
+
+/* Lists */
+#preview ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+#preview li {
+  margin-bottom: 8px;
+}
+
+/* Blockquotes */
+#preview blockquote {
+  border-left: 4px solid #f0c419;
+  color: #ffd633cc;
+  margin: 20px 0;
+  padding-left: 16px;
+  font-style: italic;
+  background-color: #2a2a2a;
+  border-radius: 6px;
+}
+
+/* Images */
+#preview img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 15px #f0c419aa;
+  margin: 12px 0;
+  display: block;
+}
+
+/* Bold text */
+#preview strong {
+  font-weight: 900;
+  color: #fff176;
+}
+
+/* Responsive: mobil uchun flex vertical */
+@media (max-width: 768px) {
+  #root > div {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  #editor, #preview {
+    width: 100%;
+    height: 45vh;
   }
 }
