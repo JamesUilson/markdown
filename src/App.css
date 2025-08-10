@@ -1,174 +1,108 @@
-/* Umumiy tana */
-body, html, #root {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
   margin: 0;
-  padding: 0;
-  height: 100%;
-  background-color: #121212; /* quyuq qora fon */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #f0c419; /* sariq rang */
+  background-color: #121212;
+  color: #f9d342; /* sariq */
+  font-family: 'Inter', sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  user-select: none;
+  padding: 20px;
 }
 
-/* Asosiy container */
-#root > div {
-  width: 90vw;
-  max-width: 1200px;
-  height: 90vh;
-  background-color: #1e1e1e;
-  box-shadow: 0 8px 24px rgba(240, 196, 25, 0.3);
-  border-radius: 12px;
+.container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  color: #f9d342;
+  user-select: none;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0 0 5px #f9d342;
+}
+
+.previewer {
   display: flex;
   gap: 20px;
-  padding: 20px;
-  user-select: text;
+  height: 70vh;
 }
 
-/* Textarea editor */
-#editor {
-  width: 50%;
-  height: 100%;
-  background-color: #222222;
+.editor,
+.preview {
+  flex: 1;
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 1rem;
+  color: #f9d342;
   border: none;
-  border-radius: 10px;
-  padding: 20px;
-  font-size: 1.1rem;
-  color: #f0c419;
+  box-shadow: 0 0 10px #f9d342aa;
+  overflow-y: auto;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.editor {
   resize: none;
   outline: none;
-  box-shadow: inset 0 0 8px #f0c419aa;
-  font-family: 'Fira Mono', monospace;
-  line-height: 1.5;
-  transition: box-shadow 0.3s ease;
 }
 
-#editor:focus {
-  box-shadow: inset 0 0 12px #ffd700;
-  background-color: #2a2a2a;
+.preview {
+  border-left: 2px solid #f9d342;
 }
 
-/* Preview panel */
-#preview {
-  width: 50%;
-  height: 100%;
-  background-color: #1a1a1a;
-  border-radius: 10px;
-  padding: 20px;
-  overflow-y: auto;
-  box-shadow: inset 0 0 8px #f0c419aa;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #f0c419;
+h1, h2, h3, h4, h5, h6 {
+  color: #f9d342;
+  margin-top: 0;
 }
 
-/* Scrollbar for preview */
-#preview::-webkit-scrollbar {
-  width: 8px;
-}
-#preview::-webkit-scrollbar-track {
-  background: #121212;
-  border-radius: 10px;
-}
-#preview::-webkit-scrollbar-thumb {
-  background-color: #f0c419;
-  border-radius: 10px;
-  border: 2px solid #121212;
+a {
+  color: #f9d342;
+  text-decoration: underline;
 }
 
-/* Markdown heading styles */
-#preview h1 {
-  font-size: 2.5rem;
-  font-weight: 900;
-  border-bottom: 3px solid #f0c419;
-  padding-bottom: 8px;
-  margin-bottom: 16px;
+code {
+  background-color: #333;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-#preview h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #ffd633;
-}
-
-/* Links */
-#preview a {
-  color: #ffd633;
-  text-decoration: none;
-  border-bottom: 1.5px solid #f0c419;
-  transition: color 0.3s ease;
-}
-#preview a:hover {
-  color: #fff176;
-}
-
-/* Inline code */
-#preview code {
-  background-color: #333333;
-  color: #f0c419;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: 'Fira Mono', monospace;
-}
-
-/* Code blocks */
-#preview pre {
-  background-color: #222222;
-  padding: 16px;
-  border-radius: 8px;
-  overflow-x: auto;
-  font-family: 'Fira Mono', monospace;
-  color: #f0c419;
-  margin-bottom: 20px;
-  box-shadow: inset 0 0 10px #f0c41988;
-}
-
-/* Lists */
-#preview ul {
-  padding-left: 20px;
-  margin-bottom: 20px;
-}
-
-#preview li {
-  margin-bottom: 8px;
-}
-
-/* Blockquotes */
-#preview blockquote {
-  border-left: 4px solid #f0c419;
-  color: #ffd633cc;
-  margin: 20px 0;
-  padding-left: 16px;
-  font-style: italic;
-  background-color: #2a2a2a;
+pre {
+  background-color: #333;
+  padding: 10px;
   border-radius: 6px;
+  overflow-x: auto;
+  font-family: 'Courier New', Courier, monospace;
+  color: #f9d342;
 }
 
-/* Images */
-#preview img {
+ul {
+  list-style: inside disc;
+}
+
+blockquote {
+  border-left: 4px solid #f9d342;
+  padding-left: 10px;
+  color: #f9d342cc;
+  font-style: italic;
+}
+
+img {
   max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 0 15px #f0c419aa;
-  margin: 12px 0;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #f9d342aa;
   display: block;
-}
-
-/* Bold text */
-#preview strong {
-  font-weight: 900;
-  color: #fff176;
-}
-
-/* Responsive: mobil uchun flex vertical */
-@media (max-width: 768px) {
-  #root > div {
-    flex-direction: column;
-  }
-  #editor, #preview {
-    width: 100%;
-    height: 45vh;
-  }
+  margin: 10px 0;
 }
